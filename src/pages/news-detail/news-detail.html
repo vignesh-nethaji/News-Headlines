@@ -1,0 +1,58 @@
+<!--
+  Generated template for the NewsDetail page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{selectedItem.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!--<p>description</p>
+  <p>{{selectedItem.description}}</p>
+  <p>url</p>
+  <p>{{selectedItem.url}}</p>
+  <p>category</p>
+  <p>{{selectedItem.category}}</p>
+  <p>language</p>
+  <p>{{selectedItem.language}}</p>
+  <p>country</p>
+  <p>{{selectedItem.country}}</p>-->
+
+  <ion-card>
+    <img [src]="imageUrl" height="175" />
+    <ion-card-content>
+      {{selectedItem.description}}
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small (click)="openUrl(selectedItem.url)">
+            <ion-icon name="eye"></ion-icon>           
+          </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+              <div>{{selectedItem.category}}</div>
+          </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>          
+            <div>{{selectedItem.language}}</div>
+          </button>
+      </ion-col>
+      <!--<ion-col center text-center>
+          <ion-note item-right>
+           {{article.publishedAt | newsTimeLeft}}
+          </ion-note>
+        </ion-col>-->
+    </ion-row>
+
+  </ion-card>
+</ion-content>

@@ -1,0 +1,48 @@
+<!--
+  Generated template for the NewsFavourites page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal"  (click)="goToList()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal"  (click)="updateNews()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>News Favourites</ion-title>
+    
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="reorder = !reorder">
+        <ion-icon name="close"  [hidden]="!reorder"></ion-icon>
+        <ion-icon name="create" [hidden]="reorder"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Available News
+    </ion-card-header>
+    <ion-list>
+      <ion-item-group reorder="{{reorder}}" (ionItemReorder)="reorderNews($event)">
+        <ion-item *ngFor="let selectedNew of selectedNews">
+          <ion-icon name="{{selectedNew.newsIcon}}" item-left ></ion-icon>
+          {{ selectedNew.newsName }}
+          <ion-icon name="trash" item-right [hidden]="reorder" (click)="removeNews(selectedNew)"></ion-icon>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </ion-card>
+</ion-content>
